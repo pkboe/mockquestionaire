@@ -161,4 +161,16 @@ const questions = {
   },
 };
 
-var res = Object.entries(obj);
+var input = questions;
+
+var result = [],
+  item;
+
+for (var type in input) {
+  item = {};
+  item.type = type;
+  item.name = input[type];
+  result.push(item);
+}
+console.log(result);
+export default result;

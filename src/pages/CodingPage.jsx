@@ -1,5 +1,6 @@
 import React from "react";
 import "./codingpage.css";
+import result from "../api/fetchQuestions.js";
 
 export const CodingPage = () => {
   return (
@@ -70,7 +71,32 @@ export const CodingPage = () => {
         </div>
         <div id="Rightcontainer" className="Panelcontainer">
           <div id="info">Cam and Info</div>
-          <div id="questionpanel">Other Panel</div>
+          <div id="questionpanel">
+            <div className="grid-container">
+              {result.map((x) => (
+                <div
+                  className="grid-item"
+                  style={{ backgroundColor: "transparent" }}
+                >
+                  <button
+                    className="Panelbutton"
+                    style={{
+                      width: "50px",
+                      backgroundColor: "#21A4C4",
+                      height: "50px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      borderRadius: "50%",
+                      outline: "none",
+                    }}
+                  >
+                    {result.indexOf(x) + 1}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
