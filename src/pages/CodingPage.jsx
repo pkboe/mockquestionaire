@@ -64,7 +64,7 @@ export const CodingPage = () => {
               <button className="Panelbutton">Mark</button>
               <button className="Panelbutton">Next</button>
             </div>
-            <button type="submit" className="Panelbutton">
+            <button type="submit" id="submit" className="Panelbutton">
               Submit
             </button>
           </div>
@@ -82,7 +82,7 @@ export const CodingPage = () => {
                     className="Panelbutton"
                     style={{
                       width: "50px",
-                      backgroundColor: "#21A4C4",
+                      backgroundColor: "#14b8e0",
                       height: "50px",
                       display: "flex",
                       justifyContent: "center",
