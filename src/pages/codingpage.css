@@ -1,7 +1,7 @@
 .CodingPage {
   height: 100% !important;
   width: 100% !important;
-  background-color: rgb(255, 215, 199);
+  /* background-color: rgb(255, 215, 199); */
 }
 #Appbar {
   display: flex;
@@ -15,11 +15,12 @@
   display: flex;
   height: auto;
   width: 100%;
+  border: 1px solid;
 }
 .Panelcontainer {
   display: flex;
   flex-direction: column;
-  height: 100%;
+
   border-top: 1px solid;
   padding: 9px;
 }
@@ -29,22 +30,84 @@
 }
 #Leftcontainer {
   width: 70%;
-  border-right: 1px solid;
+  height: 100%;
+
+  /* border-right: 1px solid; */
 }
 .Panelbutton {
   height: 30px;
   width: 80px;
   border-radius: 50px;
   font-size: 18px;
+  font-weight: bold;
   border: 2px solid #4590ff;
   background-color: white;
+  outline: 0 !important;
+
+  padding: 1px 3px;
+  box-shadow: 1px 1px 1px #000000;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  line-height: 30px;
 }
+
 .Panelbutton:hover {
-  background-color: rgb(26, 99, 209);
+  outline: 0 !important;
+
+  outline: none;
+  background-color: rgb(0, 81, 255);
   color: white;
-  border: 2px solid #202f46;
+  border: none;
+}
+.Panelbutton:active {
+  outline: 0 !important;
+
+  border: none;
+  outline: none;
+  margin-left: 1px 1px 0;
+  box-shadow: -1px -1px 1px #000;
+  outline: 1px solid #000000;
+  -moz-outline-radius: 7px;
+  background-color: rgb(0, 81, 255);
 }
 .Buttoncontainer {
   display: flex;
+  width: 300px;
   justify-content: space-evenly;
+}
+
+.Option {
+  display: list-item;
+  text-align: left;
+  background-color: rgb(233, 233, 233);
+  width: 100%;
+  height: auto;
+}
+.OptionContainer {
+  display: inline-flex;
+  justify-items: space-between;
+  align-items: center;
+}
+
+#Question {
+  text-align: left;
+  padding-left: 30px;
+  border: 1px solid;
+}
+
+#Rightcontainer {
+  height: 100%;
+  /* background-color: #234475; */
+}
+#info {
+  border: 1px solid;
+  height: 200px;
+}
+
+#questionpanel {
+  margin-top: 9px;
+  height: 70%;
+  border: 1px solid;
+  height: 400px;
 }

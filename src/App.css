@@ -2,6 +2,7 @@
   text-align: center;
   height: 100%;
   width: 100%;
+  font-family: "clear-sans", sans-serif, clear-sans;
 }
 
 .App-logo {
@@ -37,4 +38,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.container {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.container::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
