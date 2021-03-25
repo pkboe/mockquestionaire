@@ -3,6 +3,21 @@ import "./codingpage.css";
 import result from "../api/fetchQuestions.js";
 
 export const CodingPage = () => {
+  //Logic
+  //Get Question From API
+  //hard Coded Result.
+  const handleNext = () => {};
+
+  const handlePrev = () => {};
+
+  const handleMark = () => {};
+
+  const tagClick = () => {};
+
+  const handleSubmit = () => {};
+
+  const checkIfAllQuestionsAreSolved = () => {};
+
   return (
     <div className="CodingPage">
       <div
@@ -80,6 +95,7 @@ export const CodingPage = () => {
                 >
                   <button
                     className="Panelbutton"
+                    id="tagButton"
                     style={{
                       width: "50px",
                       backgroundColor: "#14b8e0",
