@@ -7,10 +7,10 @@
   display: flex;
   background-color: #14b8e0 !important;
   align-items: center;
-  height: 50px;
+  height: 60px;
   font-family: "Segoe UI";
   color: white;
-  box-shadow: 2px 2px 9px #000000;
+  box-shadow: 2px 2px 9px #3f3f3f;
 }
 #Pagecontainer {
   display: flex;
@@ -95,6 +95,8 @@
   padding-left: 30px;
   border: 1px solid;
   border-radius: 500px;
+  box-shadow: 1px 2px 2px #000000;
+  margin-bottom: 5px;
 }
 
 #Rightcontainer {
