@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/mockquestionaire/static/css/main.89d3c52e.chunk.css",
+    "main.css": "/mockquestionaire/static/css/main.f9a7ae37.chunk.css",
     "main.js": "/mockquestionaire/static/js/main.50bcb1ef.chunk.js",
     "main.js.map": "/mockquestionaire/static/js/main.50bcb1ef.chunk.js.map",
     "runtime-main.js": "/mockquestionaire/static/js/runtime-main.a4515467.js",
@@ -10,13 +10,13 @@
     "static/js/3.a8073cfe.chunk.js": "/mockquestionaire/static/js/3.a8073cfe.chunk.js",
     "static/js/3.a8073cfe.chunk.js.map": "/mockquestionaire/static/js/3.a8073cfe.chunk.js.map",
     "index.html": "/mockquestionaire/index.html",
-    "static/css/main.89d3c52e.chunk.css.map": "/mockquestionaire/static/css/main.89d3c52e.chunk.css.map",
+    "static/css/main.f9a7ae37.chunk.css.map": "/mockquestionaire/static/css/main.f9a7ae37.chunk.css.map",
     "static/js/2.8ceb8ee1.chunk.js.LICENSE.txt": "/mockquestionaire/static/js/2.8ceb8ee1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a4515467.js",
     "static/js/2.8ceb8ee1.chunk.js",
-    "static/css/main.89d3c52e.chunk.css",
+    "static/css/main.f9a7ae37.chunk.css",
     "static/js/main.50bcb1ef.chunk.js"
   ]
 }
