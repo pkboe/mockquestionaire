@@ -169,7 +169,7 @@ var result = [],
 for (var type in input) {
   item = {};
   item.type = type;
-  item.name = input[type];
+  item.data = input[type];
   result.push(item);
 }
 console.log(result);

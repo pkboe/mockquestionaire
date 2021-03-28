@@ -1,22 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import "./codingpage.css";
 import result from "../api/fetchQuestions.js";
+
+// const OptionComponent = (value) => {
+//   return (
+//     <li className="Option" id="A">
+//       <div className="OptionContainer">
+//         {" "}
+//         <input type="radio" name="answer" id="A" />
+//         <h4>{value}</h4>
+//       </div>
+//     </li>
+//   );
+// };
 
 export const CodingPage = () => {
   //Logic
   //Get Question From API
   //hard Coded Result.
-  const handleNext = () => {};
+  const [CurrentQuestion, setCurrentQuestion] = useState(result[0]);
+  const handleNext = () => {
+    if (result.indexOf(CurrentQuestion) < result.length - 1)
+      setCurrentQuestion(result[result.indexOf(CurrentQuestion) + 1]);
+  };
 
-  const handlePrev = () => {};
+  const handlePrev = () => {
+    if (result.indexOf(CurrentQuestion) > 0)
+      setCurrentQuestion(result[result.indexOf(CurrentQuestion) - 1]);
+  };
 
-  const handleMark = () => {};
+  // const handleMark = () => {};
 
-  const tagClick = () => {};
+  // const tagClick = () => {};
 
-  const handleSubmit = () => {};
+  // const handleSubmit = () => {};
 
-  const checkIfAllQuestionsAreSolved = () => {};
+  // const checkIfAllQuestionsAreSolved = () => {};
 
   return (
     <div className="CodingPage">
@@ -32,39 +51,26 @@ export const CodingPage = () => {
       <div id="Pagecontainer">
         <div id="Leftcontainer" className="Panelcontainer">
           <div id="Question">
-            <h3>Q{1}.How Python Code is Executed</h3>
+            <h3>
+              Q{result.indexOf(CurrentQuestion) + 1}.{" "}
+              {CurrentQuestion && CurrentQuestion.data.question}
+            </h3>
           </div>
           <div id="Answer">
-            <ol type="A">
+            {/* MCQ  */}
+            {/* <ol type="A">
               <form>
-                <li className="Option" id="A">
-                  <div className="OptionContainer">
-                    {" "}
-                    <input type="radio" name="answer" id="A" />
-                    <h4>Interpreters</h4>
-                  </div>
-                </li>
-                <li className="Option" id="B">
-                  <div className="OptionContainer">
-                    {" "}
-                    <input type="radio" name="answer" id="B" />
-                    <h4>Compilers</h4>
-                  </div>
-                </li>
-                <li className="Option" id="C">
-                  <div className="OptionContainer">
-                    <input type="radio" name="answer" id="C" />
-                    <h4>Engines</h4>
-                  </div>
-                </li>
-                <li className="Option" id="D">
-                  <div className="OptionContainer">
-                    <input type="radio" name="answer" id="D" />
-                    <h4>None Of These</h4>
-                  </div>
-                </li>
+                {CurrentQuestion.data.answer.map((x) =>
+                  // <OptionComponent value={x} />
+                  console.log(CurrentQuestion.data.answer)
+                )}
               </form>
-            </ol>
+            </ol> */}
+
+            {/* Single Liner */}
+            <div id="singleLinerContainer">
+              <textarea name="paragraph_text" cols="50" rows="10"></textarea>
+            </div>
           </div>
           <div
             style={{
@@ -75,9 +81,13 @@ export const CodingPage = () => {
             }}
           >
             <div className="Buttoncontainer">
-              <button className="Panelbutton">Prev</button>
+              <button className="Panelbutton" onClick={handlePrev}>
+                Prev
+              </button>
               <button className="Panelbutton">Mark</button>
-              <button className="Panelbutton">Next</button>
+              <button className="Panelbutton" onClick={handleNext}>
+                Next
+              </button>
             </div>
             <button type="submit" id="submit" className="Panelbutton">
               Submit

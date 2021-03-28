@@ -27,10 +27,12 @@
 }
 
 #Rightcontainer {
-  width: 25%;
+  width: 15%;
+  min-width: 265px;
 }
 #Leftcontainer {
-  width: 75%;
+  width: 95%;
+  min-width: 600px;
   height: 100%;
 
   /* border-right: 1px solid; */
@@ -129,4 +131,8 @@
 #submit {
   background-color: grey;
   color: white;
+}
+
+#singleLinerContainner {
+  background-color: grey;
 }
