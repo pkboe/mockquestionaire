@@ -94,6 +94,7 @@
   text-align: left;
   padding-left: 30px;
   border: 1px solid;
+  border-radius: 500px;
 }
 
 #Rightcontainer {
@@ -133,6 +134,28 @@
   color: white;
 }
 
-#singleLinerContainner {
-  background-color: grey;
+#Answer {
+  background-color: rgb(224, 223, 223);
+  height: 300px;
+  padding: 5px;
+}
+#textinputcontainer {
+  background-color: rgb(212, 209, 209);
+  width: 100%;
+  height: 100% !important;
+  text-align: left;
+  padding: 1px;
+}
+#textinput {
+  height: 100px;
+  resize: none;
+  margin-top: 0px;
+  margin-left: 20px;
+  font-size: 18px;
+  max-width: 800px;
+  width: 70%;
+  border-radius: 4px;
+  padding: 15px;
+  background-color: rgb(255, 247, 247);
+  box-shadow: 2px 2px 5px #000000;
 }

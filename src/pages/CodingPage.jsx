@@ -68,8 +68,14 @@ export const CodingPage = () => {
             </ol> */}
 
             {/* Single Liner */}
-            <div id="singleLinerContainer">
-              <textarea name="paragraph_text" cols="50" rows="10"></textarea>
+            <div id="textinputcontainer">
+              <h4 style={{ marginLeft: "5px" }}>Answer : </h4>
+              <textarea
+                id="textinput"
+                name="roleExplanation"
+                rows="2"
+                placeholder="Type Answer Here..."
+              ></textarea>
             </div>
           </div>
           <div
@@ -78,6 +84,7 @@ export const CodingPage = () => {
               maxWidth: "500px",
               display: "flex",
               justifyContent: "space-evenly",
+              marginTop: "10px",
             }}
           >
             <div className="Buttoncontainer">
