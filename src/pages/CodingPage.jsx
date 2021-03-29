@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./codingpage.css";
 import result from "../api/fetchQuestions.js";
 
@@ -20,14 +20,31 @@ export const CodingPage = () => {
   //hard Coded Result.
   const [CurrentQuestion, setCurrentQuestion] = useState(result[0]);
   const [inputArray, setinputArray] = useState([]);
+  const [currentInput, setCurrentInput] = useState("");
+
+  const isInitialMount = useRef(true);
+
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      handleJudgement();
+      // Your useEffect code here to be run on update
+    }
+  }, [CurrentQuestion]);
+
   const handleNext = () => {
     if (result.indexOf(CurrentQuestion) < result.length - 1)
       setCurrentQuestion(result[result.indexOf(CurrentQuestion) + 1]);
+    setCurrentInput(inputArray[result.indexOf(CurrentQuestion)]);
+    // handleJudgement();
   };
 
   const handlePrev = () => {
     if (result.indexOf(CurrentQuestion) > 0)
       setCurrentQuestion(result[result.indexOf(CurrentQuestion) - 1]);
+    setCurrentInput(inputArray[result.indexOf(CurrentQuestion)]);
+    // handleJudgement();
   };
 
   const handleMark = () => {
@@ -35,22 +52,36 @@ export const CodingPage = () => {
     console.log(index);
   };
 
+  const handleJudgement = () => {
+    let x = inputArray[result.indexOf(CurrentQuestion)];
+    if (x === undefined) setCurrentInput("");
+    else setCurrentInput(x);
+    console.log("Judgement Called ");
+  };
+
   // const tagClick = () => {};
 
   // const handleSubmit = () => {};
 
   // const checkIfAllQuestionsAreSolved = () => {};
+  // const handleTextInput = (e) => {
+  //   let temp = inputArray
+  //   if (temp[result.indexOf(CurrentQuestion)] !== undefined) {
+  //     temp[result.indexOf(CurrentQuestion)] += e.key;
+  //     setinputArray(temp);
+  //   } else {
+  //     temp[result.indexOf(CurrentQuestion)] = "";
+  //     temp[result.indexOf(CurrentQuestion)] += e.key;
+  //     setinputArray(temp);
+  //   }
+  //   console.log(inputArray[result.indexOf(CurrentQuestion)]);
+  // };
+
   const handleTextInput = (e) => {
-    let temp = inputArray;
-    if (temp[result.indexOf(CurrentQuestion)] !== undefined) {
-      temp[result.indexOf(CurrentQuestion)] += e.key;
-      setinputArray(temp);
-    } else {
-      temp[result.indexOf(CurrentQuestion)] = "";
-      temp[result.indexOf(CurrentQuestion)] += e.key;
-      setinputArray(temp);
-    }
-    console.log(inputArray[result.indexOf(CurrentQuestion)]);
+    setCurrentInput(e.target.value);
+    let tempArray = inputArray;
+    tempArray[result.indexOf(CurrentQuestion)] = e.target.value;
+    setinputArray(tempArray);
   };
 
   return (
@@ -91,8 +122,8 @@ export const CodingPage = () => {
                 name="roleExplanation"
                 rows="2"
                 placeholder="Type Answer Here..."
-                value={inputArray[result.indexOf(CurrentQuestion)]}
-                onKeyPress={handleTextInput}
+                value={currentInput}
+                onChange={handleTextInput}
               ></textarea>
             </div>
           </div>
