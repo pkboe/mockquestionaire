@@ -19,6 +19,7 @@ export const CodingPage = () => {
   //Get Question From API
   //hard Coded Result.
   const [CurrentQuestion, setCurrentQuestion] = useState(result[0]);
+  const [inputArray, setinputArray] = useState([]);
   const handleNext = () => {
     if (result.indexOf(CurrentQuestion) < result.length - 1)
       setCurrentQuestion(result[result.indexOf(CurrentQuestion) + 1]);
@@ -29,13 +30,28 @@ export const CodingPage = () => {
       setCurrentQuestion(result[result.indexOf(CurrentQuestion) - 1]);
   };
 
-  // const handleMark = () => {};
+  const handleMark = () => {
+    let index = result.indexOf(CurrentQuestion);
+    console.log(index);
+  };
 
   // const tagClick = () => {};
 
   // const handleSubmit = () => {};
 
   // const checkIfAllQuestionsAreSolved = () => {};
+  const handleTextInput = (e) => {
+    let temp = inputArray;
+    if (temp[result.indexOf(CurrentQuestion)] !== undefined) {
+      temp[result.indexOf(CurrentQuestion)] += e.key;
+      setinputArray(temp);
+    } else {
+      temp[result.indexOf(CurrentQuestion)] = "";
+      temp[result.indexOf(CurrentQuestion)] += e.key;
+      setinputArray(temp);
+    }
+    console.log(inputArray[result.indexOf(CurrentQuestion)]);
+  };
 
   return (
     <div className="CodingPage">
@@ -75,6 +91,8 @@ export const CodingPage = () => {
                 name="roleExplanation"
                 rows="2"
                 placeholder="Type Answer Here..."
+                value={inputArray[result.indexOf(CurrentQuestion)]}
+                onKeyPress={handleTextInput}
               ></textarea>
             </div>
           </div>
@@ -91,7 +109,9 @@ export const CodingPage = () => {
               <button className="Panelbutton" onClick={handlePrev}>
                 Prev
               </button>
-              <button className="Panelbutton">Mark</button>
+              <button className="Panelbutton" onClick={handleMark}>
+                Mark
+              </button>
               <button className="Panelbutton" onClick={handleNext}>
                 Next
               </button>
