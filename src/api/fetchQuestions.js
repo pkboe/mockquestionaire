@@ -172,5 +172,5 @@ for (var type in input) {
   item.data = input[type];
   result.push(item);
 }
-console.log(result);
+// console.log(result);
 export default result;
