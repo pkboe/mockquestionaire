@@ -86,6 +86,7 @@ export const CodingPage = () => {
 
   return (
     <div className="CodingPage">
+      <h1 style={{ fontSize: "20px" }}>🚧 Under Developement 🚧</h1>
       <div
         id="Appbar"
         style={{
@@ -163,10 +164,10 @@ export const CodingPage = () => {
                 >
                   <button
                     className="Panelbutton"
-                    id="tagButton"
+                    id="tagbutton"
                     style={{
                       width: "50px",
-                      backgroundColor: "#14b8e0",
+                      // backgroundColor: "#14b8e0",
                       height: "50px",
                       display: "flex",
                       justifyContent: "center",
