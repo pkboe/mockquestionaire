@@ -28,12 +28,12 @@ export const CodingPage = () => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
     } else {
-      console.log("UseEffect Called");
+      // console.log("UseEffect Called");
       const handleJudgement = () => {
         let x = inputArray[result.indexOf(CurrentQuestion)];
         if (x === undefined) setCurrentInput("");
         else setCurrentInput(x);
-        console.log("Judgement Called ");
+        // console.log("Judgement Called ");
       };
       handleJudgement();
       // Your useEffect code here to be run on update
