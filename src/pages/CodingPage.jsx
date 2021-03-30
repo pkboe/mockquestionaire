@@ -79,7 +79,11 @@ export const CodingPage = () => {
 
     const responseData = { id: candidateId, answersheet: answersheet };
     if (saveResponse(responseData))
-      swal({ icon: "success", title: "Test Submitted Successfully!" });
+      swal({
+        icon: "success",
+        title: "Test Submitted Successfully!",
+        text: "Random Id :" + candidateId.toString(),
+      });
   };
 
   // const checkIfAllQuestionsAreSolved = () => {};
