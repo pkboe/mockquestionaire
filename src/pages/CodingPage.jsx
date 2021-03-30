@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./codingpage.css";
+import { saveResponse } from "../services/dbservice.js";
 import result from "../api/fetchQuestions.js";
+import swal from "@sweetalert/with-react";
 
 // const OptionComponent = (value) => {
 //   return (
@@ -61,7 +63,7 @@ export const CodingPage = () => {
 
   // const tagClick = () => {};
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     let answersheet = [];
     var candidateId = Math.floor(Math.random() * 10000000 + 1);
     for (let i = 0; i < result.length; i++) {
@@ -76,7 +78,8 @@ export const CodingPage = () => {
     }
 
     const responseData = { id: candidateId, answersheet: answersheet };
-    console.log(responseData);
+    if (saveResponse(responseData))
+      swal({ icon: "success", title: "Test Submitted Successfully!" });
   };
 
   // const checkIfAllQuestionsAreSolved = () => {};

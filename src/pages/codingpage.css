@@ -185,3 +185,44 @@
   transition: 0.2s;
   box-shadow: 4px 6px 16px #502d00;
 }
+
+.swal-modal {
+  font-family: "Segoe UI";
+}
+
+.swal-button {
+  height: auto !important;
+  font-size: 1.2rem !important;
+  box-shadow: 1px 1px 3px #000000 !important;
+  text-align: center !important;
+  border-radius: 5px !important;
+  background-color: var(--primary) !important;
+  color: white !important;
+  outline: 0 !important;
+  outline: none !important;
+  border: none !important;
+  padding: 5px !important;
+  width: 50px !important;
+  transition: 0.1s !important;
+}
+
+.swal-button:focus {
+  outline: 0 !important;
+  outline: none;
+}
+
+.swal-button:active {
+  transition: 0.2s;
+  outline: 0 !important;
+  border: none;
+  outline: none;
+  margin-left: 1px 1px 0;
+  box-shadow: -1px -1px 1px #000;
+  outline: 1px solid #000000;
+  -moz-outline-radius: 7px;
+  background-color: var(--accent);
+}
+.swal-button:hover {
+  box-shadow: 2px 2px 9px #000000;
+  background-color: var(--accent) !important;
+}

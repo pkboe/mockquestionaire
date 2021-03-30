@@ -13,8 +13,14 @@ const saveResponse = async (responseData) => {
   // };
   await axios
     .post("http://localhost:8080/api/responses", responseData)
-    .catch((err) => console.error(err.status))
-    .then((res) => console.log(res.status));
+    .catch((err) => {
+      console.error(err.status);
+      return false;
+    })
+    .then((res) => {
+      console.log(res.status);
+      return true;
+    });
 };
 
-saveResponse();
+export { saveResponse };
