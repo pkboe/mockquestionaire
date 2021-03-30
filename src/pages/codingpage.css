@@ -176,12 +176,12 @@
   border-radius: 4px;
   padding: 15px;
   background-color: rgb(255, 247, 247);
-  box-shadow: 2px 3px 5px #000000;
+  box-shadow: 2px 3px 8px #000000;
   transition: 0.2s;
   outline: none;
 }
 
 #textinput:focus {
   transition: 0.2s;
-  box-shadow: 2px 3px 10px #000000;
+  box-shadow: 4px 6px 16px #502d00;
 }

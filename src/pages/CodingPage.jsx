@@ -61,7 +61,23 @@ export const CodingPage = () => {
 
   // const tagClick = () => {};
 
-  // const handleSubmit = () => {};
+  const handleSubmit = () => {
+    let answersheet = [];
+    var candidateId = Math.floor(Math.random() * 10000000 + 1);
+    for (let i = 0; i < result.length; i++) {
+      let temp;
+      if (inputArray[i] === undefined) temp = "";
+      else temp = inputArray[i];
+
+      answersheet.push({
+        question: result[i].data.question,
+        answer: temp,
+      });
+    }
+
+    const responseData = { id: candidateId, answersheet: answersheet };
+    console.log(responseData);
+  };
 
   // const checkIfAllQuestionsAreSolved = () => {};
   // const handleTextInput = (e) => {
@@ -148,7 +164,12 @@ export const CodingPage = () => {
                 Next
               </button>
             </div>
-            <button type="submit" id="submit" className="Panelbutton">
+            <button
+              type="submit"
+              id="submit"
+              className="Panelbutton"
+              onClick={handleSubmit}
+            >
               Submit
             </button>
           </div>
