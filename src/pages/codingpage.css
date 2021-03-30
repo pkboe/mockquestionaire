@@ -149,6 +149,10 @@
   color: white;
 }
 
+#submit:active {
+  background-color: #505050;
+}
+
 #Answer {
   background-color: rgb(224, 223, 223);
   height: 300px;
