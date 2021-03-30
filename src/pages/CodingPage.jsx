@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import "./codingpage.css";
 import { saveResponse } from "../services/dbservice.js";
 import result from "../api/fetchQuestions.js";
-import swal from "@sweetalert/with-react";
 
 // const OptionComponent = (value) => {
 //   return (
@@ -23,6 +22,7 @@ export const CodingPage = () => {
   const [CurrentQuestion, setCurrentQuestion] = useState(result[0]);
   const [inputArray, setinputArray] = useState([]);
   const [currentInput, setCurrentInput] = useState("");
+  const [IsLoading, setIsLoading] = useState(false);
 
   const isInitialMount = useRef(true);
 
@@ -63,7 +63,8 @@ export const CodingPage = () => {
 
   // const tagClick = () => {};
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
+    setIsLoading(true);
     let answersheet = [];
     var candidateId = Math.floor(Math.random() * 10000000 + 1);
     for (let i = 0; i < result.length; i++) {
@@ -78,12 +79,7 @@ export const CodingPage = () => {
     }
 
     const responseData = { id: candidateId, answersheet: answersheet };
-    if (saveResponse(responseData))
-      swal({
-        icon: "success",
-        title: "Test Submitted Successfully!",
-        text: "Random Id :" + candidateId.toString(),
-      });
+    saveResponse(responseData).then(setIsLoading(false));
   };
 
   // const checkIfAllQuestionsAreSolved = () => {};
@@ -109,7 +105,10 @@ export const CodingPage = () => {
 
   return (
     <div className="CodingPage">
-      <h1 style={{ fontSize: "20px" }}>🚧 Under Developement 🚧</h1>
+      <h1 style={{ fontSize: "20px" }}>
+        🚧 Under Developement : Added MongoDB + SweetAlert 🚧
+      </h1>
+
       <div
         id="Appbar"
         style={{
@@ -175,7 +174,11 @@ export const CodingPage = () => {
               type="submit"
               id="submit"
               className="Panelbutton"
-              onClick={handleSubmit}
+              onClick={() => {
+                setIsLoading(true);
+                handleSubmit();
+              }}
+              disabled={IsLoading}
             >
               Submit
             </button>
@@ -189,6 +192,7 @@ export const CodingPage = () => {
                 <div
                   className="grid-item"
                   style={{ backgroundColor: "transparent" }}
+                  key={result.indexOf(x) + 1}
                 >
                   <button
                     className="Panelbutton"

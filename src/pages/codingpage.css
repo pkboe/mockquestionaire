@@ -153,6 +153,10 @@
   background-color: #505050;
 }
 
+#submit:disabled {
+  background-color: tomato;
+}
+
 #Answer {
   background-color: rgb(224, 223, 223);
   height: 300px;
