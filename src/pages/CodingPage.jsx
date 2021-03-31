@@ -48,12 +48,13 @@ export const CodingPage = () => {
     swal({
       icon: "info",
       title: "Please Wait...",
+      text: "It May Take Sometime.Don't Worry, it wont use your test time.",
     });
     setIsLoading(true);
     await axios
       .post("http://localhost:8080/api/responses", responseData)
       .then((res) => {
-        setIsLoading(true);
+        setIsLoading(false);
         console.log(res.status);
         swal({
           icon: "success",
