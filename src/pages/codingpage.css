@@ -154,7 +154,9 @@
 }
 
 #submit:disabled {
-  background-color: tomato;
+  background-color: rgb(255, 147, 128);
+  box-shadow: 0px 0px 0px #000000;
+  cursor: wait;
 }
 
 #Answer {

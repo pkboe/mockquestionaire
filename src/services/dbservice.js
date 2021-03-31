@@ -3,6 +3,10 @@ import axios from "axios";
 import swal from "@sweetalert/with-react";
 
 const saveResponse = async (responseData) => {
+  swal({
+    icon: "info",
+    title: "Please Wait...",
+  });
   // const responseData = {
   //   id: "fdsfsdvvdsfsdff",
   //   answersheet: [
@@ -49,5 +53,3 @@ const saveResponse = async (responseData) => {
       return error;
     });
 };
-
-export { saveResponse };

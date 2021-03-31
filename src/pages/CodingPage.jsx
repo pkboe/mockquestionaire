@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./codingpage.css";
-import { saveResponse } from "../services/dbservice.js";
+// import { saveResponse } from "../services/dbservice.js";
 import result from "../api/fetchQuestions.js";
+import axios from "axios";
+import swal from "@sweetalert/with-react";
 
 // const OptionComponent = (value) => {
 //   return (
@@ -42,6 +44,56 @@ export const CodingPage = () => {
     }
   }, [CurrentQuestion, inputArray]);
 
+  const saveResponse = async (responseData) => {
+    swal({
+      icon: "info",
+      title: "Please Wait...",
+    });
+    setIsLoading(true);
+    await axios
+      .post("http://localhost:8080/api/responses", responseData)
+      .then((res) => {
+        setIsLoading(true);
+        console.log(res.status);
+        swal({
+          icon: "success",
+          title: "Test Submitted Successfully!",
+          text: "Random Id :" + responseData.id,
+        });
+        return res;
+      })
+      .catch((error) => {
+        let reason;
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          // console.log(error.response.data);
+          // console.log(error.response.status);
+          // console.log(error.response.headers);
+          reason = error;
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the
+          // browser and an instance of
+          // http.ClientRequest in node.js
+          console.log(error);
+          reason = error;
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log("Error", error.message);
+          reason = error;
+        }
+        // console.log(error.response.data);
+        swal({
+          icon: "error",
+          title: reason,
+          text: "Random Id :" + responseData.id.toString(),
+        });
+        setIsLoading(false);
+        return error;
+      });
+  };
+
   const handleNext = () => {
     if (result.indexOf(CurrentQuestion) < result.length - 1)
       setCurrentQuestion(result[result.indexOf(CurrentQuestion) + 1]);
@@ -79,7 +131,7 @@ export const CodingPage = () => {
     }
 
     const responseData = { id: candidateId, answersheet: answersheet };
-    saveResponse(responseData).then(setIsLoading(false));
+    saveResponse(responseData);
   };
 
   // const checkIfAllQuestionsAreSolved = () => {};
